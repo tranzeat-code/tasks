@@ -27,13 +27,68 @@ class _Task5State extends State<Task5> {
           key: _formKey,
           child: Column(
             children: [
-              // network image logo
+              // network image logo (url https://www.google.com/url?sa=i&url=https%3A%2F%2Ffreelogopng.com%2Forange-logo-png&psig=AOvVaw0CgNMykY8e5Bct9XNHa_e5&ust=1738913683845000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODunLXErosDFQAAAAAdAAAAABAP)
+              Image.network(
+                'https://www.google.com/url?sa=i&url=https%3A%2F%2Ffreelogopng.com%2Forange-logo-png&psig=AOvVaw0CgNMykY8e5Bct9XNHa_e5&ust=1738913683845000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODunLXErosDFQAAAAAdAAAAABAP',
+                height: 100,
+                width: 300,
+              ),
               // sized box height 16
+              SizedBox(
+                height: 16,
+              ),
               // text form field email
+              TextFormField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Colors.deepOrange,
+                  ),
+                  border: OutlineInputBorder(),
+                ),
+              ),
               // sized box height 16
+              SizedBox(
+                height: 16,
+              ),
               // text form field password
+              TextFormField(
+                controller: _passwordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: Colors.deepOrange,
+                  ),
+                  border: OutlineInputBorder(),
+                ),
+              ),
               // sized box height 16
-              // login button
+              SizedBox(
+                height: 16,
+              ),
+              // login button (Elivated Button , onpressed -> validate -> if valid -> show snackbar with login successfuly , else show snackbar with error)
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState?.validate() ?? false) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Login Successfuly'),
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Error'),
+                      ),
+                    );
+                  }
+                },
+                child: Text('Login'),
+              ),
             ],
           ),
         ),
