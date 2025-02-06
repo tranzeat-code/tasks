@@ -92,7 +92,22 @@ class _Task5State extends State<Task5> {
                       );
                     }
                   },
-                  child: Text('Login'),
+                  // button style -> backgroundColor deep orange and padding vertical 15 horizontal 30 radius 20
+                  style: ElevatedButton.styleFrom(
+                    //primary: Colors.white,
+                    backgroundColor: Colors.deepOrange,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 15,
+                      horizontal: 30,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  ),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
                 ),
               ],
             ),
