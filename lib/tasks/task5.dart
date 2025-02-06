@@ -32,11 +32,15 @@ class _Task5State extends State<Task5> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // sized box height 160
+                SizedBox(
+                  height: 50,
+                ),
                 // network image logo (url https://www.google.com/url?sa=i&url=https%3A%2F%2Ffreelogopng.com%2Forange-logo-png&psig=AOvVaw0CgNMykY8e5Bct9XNHa_e5&ust=1738913683845000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCODunLXErosDFQAAAAAdAAAAABAP)
                 Image.network(
                   'https://1000logos.net/wp-content/uploads/2017/04/Orange-Logo.png',
-                  height: 100,
-                  width: 300,
+                  height: 200,
+                  width: 200,
                 ),
                 // sized box height 16
                 SizedBox(
