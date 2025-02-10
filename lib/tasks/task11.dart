@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '../models/product.dart';
-// import http
+// ********************************************************************************** 1 (import http)
 import 'package:http/http.dart' as http;
 
 // Product List Screen
@@ -13,15 +13,20 @@ class ProductListScreen extends StatefulWidget {
 }
 
 class _ProductListScreenState extends State<ProductListScreen> {
+  // ******************************************************************************* 2 (list of (x) )
   late Future<List<Product>> futureProducts;
 
-  // Function to Fetch Products
+  // ******************************************************************************* 4 Function to Fetch Products
   Future<List<Product>> fetchAllProducts() async {
-    final response =
-        await http.get(Uri.parse('https://fakestoreapi.com/products'));
-
+    // 1
+    final response = await http.get(
+        Uri.parse('https://fakestoreapi.com/products')); // hold response value
+    // 2
     if (response.statusCode == 200) {
-      List<dynamic> jsonData = json.decode(response.body);
+      // 3
+      List<dynamic> jsonData =
+          json.decode(response.body); // (temp box decode response)
+      //4 finaly
       return jsonData.map((item) => Product.fromJson(item)).toList();
     } else {
       throw Exception("Failed to load products");
@@ -31,6 +36,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   @override
   void initState() {
     super.initState();
+    // ***************************************************************************** 3 (initialize late future value)
     futureProducts = fetchAllProducts();
   }
 
@@ -38,8 +44,11 @@ class _ProductListScreenState extends State<ProductListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Products')),
+      //1
       body: FutureBuilder<List<Product>>(
+        //2
         future: futureProducts,
+        //3
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
@@ -48,10 +57,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return Center(child: Text("No products available"));
           }
-
+          // 4 data to be used in list view
           List<Product> products = snapshot.data!;
+          //5
           return ListView.builder(
+            //6
             itemCount: products.length,
+            //7
             itemBuilder: (context, index) {
               return Card(
                 margin: EdgeInsets.all(10),
