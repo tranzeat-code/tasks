@@ -1,4 +1,4 @@
-// Product Model
+// Product Model (json to dart)
 class Product {
   int? id;
   String? title;
