@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tasks/views/details.dart';
 
 import '../models/product.dart';
 import '../providers/product_provider.dart';
@@ -60,6 +61,16 @@ class _ProductViewWidgetState extends State<ProductViewWidget> {
                       Text(product.rating?.rate?.toStringAsFixed(1) ?? "N/A"),
                     ],
                   ),
+                  onTap: () {
+                    print(" title : ${product.title} , passed to details page");
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Details(product: product),
+                      ),
+                    );
+                  },
                 ),
               );
             },
@@ -69,6 +80,14 @@ class _ProductViewWidgetState extends State<ProductViewWidget> {
     );
   }
 }
+
+// Navigator.push(
+//               context,
+//               MaterialPageRoute(
+//                 builder: (context) => SecondScreen(product: product),
+//               ),
+//             );
+//           },
 
 
 // CODE WITH ERROR (fetchAllProducts not called)
