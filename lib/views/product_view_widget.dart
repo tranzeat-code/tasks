@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tasks/views/details.dart';
+import 'package:tasks/views/details_raghad.dart';
 
 import '../models/product.dart';
 import '../providers/product_provider.dart';
@@ -63,13 +64,19 @@ class _ProductViewWidgetState extends State<ProductViewWidget> {
                   ),
                   onTap: () {
                     print(" title : ${product.title} , passed to details page");
-
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Details(product: product),
+                        builder: (context) => DetailsRaghad(product: product),
                       ),
                     );
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => Details(product: product),
+                    //   ),
+                    // );
                   },
                 ),
               );
