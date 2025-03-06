@@ -17,6 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 
 ![Example Image](1.jpg)
-
+![Example Image](2.jpg)
 
 
