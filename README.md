@@ -15,4 +15,16 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-![alt text]([http://url/to/img.png](https://img.freepik.com/free-vector/bird-colorful-gradient-design-vector_343694-2506.jpg))
+<svg width="300" height="100">
+  <title>Attribute Animation with SMIL</title>
+  <rect x="0" y="0" width="300" height="100" stroke="black" stroke-width="1" />
+  <circle cx="0" cy="50" r="15" fill="blue" stroke="black" stroke-width="1">
+    <animate
+      attributeName="cx"
+      from="0"
+      to="500"
+      dur="5s"
+      repeatCount="indefinite" />
+  </circle>
+</svg>
+
